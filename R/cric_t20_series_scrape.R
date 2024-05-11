@@ -169,7 +169,7 @@ cric_t20_series_scrape <- function(x){
 
           df <- bind_rows(df,df_df)
         }, error = function(msg){
-          print("A scraped match may have been abandoned, or an innings may not have completed all 20 overs")
+          print("A scraped innings may not have completed all 20 overs")
         }
         )
       }}
