@@ -33,7 +33,7 @@ cric_t20_series_scrape <- function(x){
 
   length_fixture <- length(fixture_match_ids$match_id)
   duration <- length_fixture*20
-  print(glue('{length_fixture} matches to scrape at an average of 15-20 seconds means predicted run time = {duration} seconds. Have you checked if this competition ({comp_code_df$competition_code}) is available via the cric_readr function?'))
+  print(glue('{length_fixture} matches to scrape at an average of 15-20 seconds means predicted run time = {duration} seconds. Have you checked if this competition ({comp_code_df$competition_code}) is available via the load_bbb_data function?'))
 
   seriesId <- fixture_match_ids |>
     slice_head(n =1) |>
