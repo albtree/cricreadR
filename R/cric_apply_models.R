@@ -124,24 +124,14 @@ if (top_row$gender == "male" & top_row$type_clean == "T20")
 
   bbb_all <- bind_rows(innings1, innings2)
 
-  custom_game_ids <- bbb_all %>%
-    filter(inning_number == 1) %>%
-    group_by(match_id) %>%
-    slice_max(balls_remaining, n = 1, with_ties = FALSE) %>%
-    ungroup() %>%
-    mutate(custom_match_id = str_c(competition_code,"_",season,"_",date,"_",bat_team_abbr,"_",bowl_team_abbr)) %>%
-    dplyr::select(match_id, custom_match_id)
-
-  bbb_with_match_id <- bbb_all %>%
-    left_join(custom_game_ids, by = c('match_id' = 'match_id'))
 
   if (top_row$type_clean == "The Hundred")
   {
-    bbb_with_match_id <-  bbb_with_match_id |>
+    bbb_all <-  bbb_all |>
       dplyr::select(everything(), -wp, -xrun)
   }
 
-  wpa_df <- bbb_with_match_id |>
+  wpa_df <- bbb_all |>
     arrange(match_id, inning_number, delivery_no) |>
     rename(total_inning_wickets = wickets_lost_yet,
            total_inning_runs = runs_scored_yet) |>

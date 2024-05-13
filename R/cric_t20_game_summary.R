@@ -2,11 +2,8 @@
 cric_t20_game_summary <- function(x){
   suppressPackageStartupMessages(library(tidyverse))
 
-  match_id_df <- x |>
-    dplyr::select(match_id, custom_match_id) |>
-    slice_head(n=1)
   bbb_df <- x %>%
-    group_by(match_id, inning_number) %>%
+    group_by(match_id, custom_match_id, inning_number) %>%
     mutate(wp_prev = lag(wp),
            impact_prev = lag(exp_innings)) %>%
     ungroup() %>%
@@ -24,18 +21,18 @@ cric_t20_game_summary <- function(x){
 
   batters_nbsr <- bbb_df %>%
     filter(boundary == 0) %>%
-    group_by(batter, batter_cricinfo_id, bat_team, competition, match_id, season) %>%
+    group_by(batter, batter_cricinfo_id, bat_team, competition, match_id, custom_match_id, season) %>%
     summarise(non_boundary_balls_faced = n(),
               non_boundary_runs_gained = sum(runs_off_bat, na.rm = TRUE)) %>%
     ungroup()
 
   batters_wickets <- bbb_df |>
-    group_by(out_player, out_player_cricinfo_id, bat_team, competition, match_id, season) |>
+    group_by(out_player, out_player_cricinfo_id, bat_team, competition, match_id, custom_match_id, season) |>
     summarise(wickets_lost = sum(is_wicket, na.rm = TRUE)) |>
     ungroup()
 
   batters_df <- bbb_df %>%
-    group_by(batter, batter_cricinfo_id, bat_team, competition, match_id, season) %>%
+    group_by(batter, batter_cricinfo_id, bat_team, competition, match_id, custom_match_id, season) %>%
     summarise(total_bat_wpa = sum(bat_WPA, na.rm = TRUE),
               runs_for = sum(runs_off_bat, na.rm = TRUE),
               #wickets_lost = sum(wicket, na.rm = TRUE),
@@ -47,11 +44,11 @@ cric_t20_game_summary <- function(x){
               total_bat_impact = sum(bat_impact, na.rm = TRUE)) %>%
     ungroup() %>%
     mutate(total_bat_wpa = round(total_bat_wpa, digits = 2)) %>%
-    left_join(batters_nbsr, by = c('batter', 'batter_cricinfo_id', 'bat_team', 'competition', 'match_id', 'season'), na_matches = "never") |>
-    left_join(batters_wickets, by = c('batter' = 'out_player', 'batter_cricinfo_id' = 'out_player_cricinfo_id', 'bat_team', 'match_id', 'competition', 'season'), na_matches = "never")
+    left_join(batters_nbsr, by = c('batter', 'batter_cricinfo_id', 'bat_team', 'competition', 'match_id', 'custom_match_id', 'season'), na_matches = "never") |>
+    left_join(batters_wickets, by = c('batter' = 'out_player', 'batter_cricinfo_id' = 'out_player_cricinfo_id', 'bat_team', 'match_id', 'custom_match_id', 'competition', 'season'), na_matches = "never")
 
   bowlers_df <- bbb_df %>%
-    group_by(bowler, bowler_cricinfo_id, bowl_team, competition, match_id, season) %>%
+    group_by(bowler, bowler_cricinfo_id, bowl_team, competition, match_id, custom_match_id, season) %>%
     summarise(total_bowl_wpa = sum(bowl_WPA, na.rm = TRUE),
               wickets_taken = sum(is_wicket, na.rm = TRUE),
               runs_against = sum(total_runs, na.rm = TRUE),
@@ -82,7 +79,7 @@ headshots <- read.csv("https://raw.githubusercontent.com/albtree/cricket-headsho
 
 df_both <- bat_only %>%
   full_join(bowl_only, by = c('player' = 'player', 'cricinfo_id' = 'cricinfo_id', 'team' = 'team', 'competition' = 'competition',
-                                  'match_id' = 'match_id', 'season' = 'season'), na_matches = "never")%>%
+                                  'match_id' = 'match_id', 'custom_match_id' = 'custom_match_id', 'season' = 'season'), na_matches = "never")%>%
   mutate(total_bat_wpa = replace_na(total_bat_wpa, 0),
          total_bowl_wpa = replace_na(total_bowl_wpa, 0),
          total_bat_XRA = replace_na(total_bat_XRA, 0),
@@ -96,7 +93,7 @@ df_both <- bat_only %>%
   mutate(team = unique(team[!is.na(team)])) %>%
   replace(., is.na(.),0)%>%
   ungroup()%>%
-  group_by(player, cricinfo_id, team, competition, match_id, season) %>%
+  group_by(player, cricinfo_id, team, competition, match_id, custom_match_id, season) %>%
   summarise(across(c(1:19), sum)) %>% #was 1:17 when XRA included, rows 1:15 without XRA
   ungroup() %>%
   mutate(bowl_wpa_per_ball = (total_bowl_wpa/balls_bowled)*100,
@@ -135,7 +132,6 @@ df_both <- bat_only %>%
                                       'competition' = 'league'), na_matches = "never") |>
   left_join(competitions, by = c('competition'), na_matches = "never") |>
   left_join(headshots, by = c('cricinfo_id' = 'cricinfo_id'), na_matches = "never") |>
-  left_join(match_id_df, by = c('match_id'), na_matches = "never") |>
   distinct(cricinfo_id, team, match_id, .keep_all = TRUE) |>
   dplyr::select(player, cricinfo_id,
                 team, season, competition, match_id, custom_match_id, total_impact, total_impact_per_ball, total_bat_impact,

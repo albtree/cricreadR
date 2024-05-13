@@ -47,6 +47,7 @@ cric_t20_series_scrape <- function(x){
   player_list_team_2_all <- data.frame()
   df <- data.frame()
   df_teams <- data.frame()
+  df_custom_match_id <- data.frame()
 
   for(match_id in fixture_match_ids$match_id){
     for(inning_number in 1:2){
@@ -96,6 +97,13 @@ cric_t20_series_scrape <- function(x){
             dplyr::select(innings_number, target) |>
             mutate(innings_number = as.integer(innings_number))
           innings_df$match_id <- match_id
+
+          df_custom_match_id_df <- pluck(match_data_json, "match", .default = NA) |>
+            as.data.frame() |>
+            dplyr::select(team1_abbreviation, team2_abbreviation, start_date_raw) |>
+            rename(custom_team1_abbr = team1_abbreviation,
+                   custom_team2_abbr = team2_abbreviation)
+          df_custom_match_id_df$match_id <- match_id
 
 
           player_list_team_1 <- pluck(match_data_json, "team", "player", 1) |>
@@ -166,6 +174,7 @@ cric_t20_series_scrape <- function(x){
 
           innings <- bind_rows(innings, innings_df)
           match_data <- bind_rows(match_data, match_data_df)
+          df_custom_match_id <- bind_rows(df_custom_match_id, df_custom_match_id_df)
 
           df <- bind_rows(df,df_df)
         }, error = function(msg){
@@ -192,6 +201,11 @@ cric_t20_series_scrape <- function(x){
     distinct(match_id, innings_number, target) |>
     dplyr::select(match_id, innings_number, target) |>
     mutate(innings_number = as.integer(innings_number))
+
+
+  df_custom_match_id <- df_custom_match_id |>
+    mutate(custom_match_id = str_c(custom_team1_abbr, "_", custom_team2_abbr, "_", start_date_raw)) |>
+    dplyr::select(match_id, custom_match_id)
 
   player_list <- bind_rows(player_list_team_1_all, player_list_team_2_all) |>
     distinct(player_id, object_id, known_as, .keep_all = TRUE) |>
@@ -220,7 +234,9 @@ cric_t20_series_scrape <- function(x){
            bowl_team_abbr = team_abbreviation) |>
     dplyr::select(-bat_innings) |>
     left_join(innings, by = c('match_id' = 'match_id', 'inningNumber' = 'innings_number')) |>
-    left_join(match_data, by = "match_id")
+    left_join(match_data, by = "match_id") |>
+    left_join(df_custom_match_id, by = "match_id") |>
+    mutate(custom_match_id = str_c(competition_code, "_", custom_match_id))
 
   bbb_data <- df |>
     distinct(match_id, id, .keep_all = TRUE) |>
@@ -250,7 +266,7 @@ cric_t20_series_scrape <- function(x){
     mutate(bowler_wickets_cumulative = cumsum(isWicket)) |>
     ungroup() |>
     mutate(season = as.integer(season)) |>
-    dplyr::select(match_id, season, type_clean, competition_code, competition, gender, venue,
+    dplyr::select(match_id, custom_match_id, season, type_clean, competition_code, competition, gender, venue,
                   date, timestamp, inningNumber, id, oversUnique,
                   oversActual, overNumber, ballNumber, balls_remaining,
                   totalInningRuns, run_rate, target, totalInningWickets,
