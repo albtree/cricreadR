@@ -12,7 +12,7 @@ load_bbb_data <- function(comp_code = NULL,
   details <- read.csv("https://github.com/albtree/cricreadR/raw/main/data/comp_codes.csv") |>
     filter(competition_code == comp_code) |>
     slice_head(n = 1)
-  data <- readRDS(url(glue("https://github.com/albtree/cricreadR/raw/main/data/{details$competition_code}_{details$gender}_ball_by_ball.rds"))#
+  data <- readRDS(url(glue("https://github.com/albtree/cricreadR/raw/main/data/{details$competition_code}_{details$gender}_ball_by_ball.rds")))#
 
   # Create a logical condition based on provided arguments
   condition <- TRUE
