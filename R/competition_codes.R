@@ -1,6 +1,6 @@
 
 competition_codes <- function(){
-suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyverse))
 competition_codes_df <- read.csv("data/comp_codes.csv") |>
   arrange(competition_code, -season)
   return(competition_codes_df)
