@@ -7,5 +7,3 @@ To install package from github use following code:
 ```
 # install.packages("pak")
 pak::pak("albtree/cricreadR")
-
-
