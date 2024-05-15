@@ -5,5 +5,5 @@ A package of functions to read in cricket ball by ball data, and player statisti
 
 To install package from github use following code:
 ```
-# install.packages("pak")
-pak::pak("albtree/cricreadR")
+# install.packages("devtools")
+devtools::install_github("albtree/cricreadR")
