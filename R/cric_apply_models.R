@@ -68,42 +68,42 @@ testing2_xrun <- bbb %>%
 
 if (top_row$gender == "male" & top_row$type_clean == "T20")
 {
-  xrun_1 <- xgb.load("models/male_1_t20_xrun")
-  xrun_2 <- xgb.load("models/male_2_t20_xrun")
-  wpa_1 <- xgb.load("models/male_1_t20_wpa")
-  wpa_2 <- xgb.load("models/male_2_t20_wpa')
-  impact_1 <- readRDS("models/male_1_t20_impact.rda")
-  impact_2 <- readRDS("models/male_2_t20_impact.rda")
+  xrun_1 <- cricreadR:::male_1_t20_xrun
+  xrun_2 <- cricreadR:::male_2_t20_xrun
+  wpa_1 <- cricreadR:::male_1_t20_wpa
+  wpa_2 <- cricreadR:::male_2_t20_wpa
+  impact_1 <- cricreadR:::male_1_t20_impact
+  impact_2 <- cricreadR:::male_2_t20_impact
 }
 
   if (top_row$gender == "male" & top_row$type_clean == "The Hundred")
   {
-    xrun_1 <- xgb.load("models/male_1_t20_xrun")
-    xrun_2 <- xgb.load("models/male_2_t20_xrun")
-    wpa_1 <- xgb.load("models/male_1_t20_wpa")
-    wpa_2 <- xgb.load("models/male_2_t20_wpa")
-    impact_1 <- readRDS("models/male_1_100_impact.rda")
-    impact_2 <- readRDS("models/male_2_100_impact.rda")
+    xrun_1 <- cricreadR:::male_1_t20_xrun
+    xrun_2 <- cricreadR:::male_2_t20_xrun
+    wpa_1 <- cricreadR:::male_1_t20_wpa
+    wpa_2 <- cricreadR:::male_2_t20_wpa
+    impact_1 <- cricreadR:::male_1_100_impact
+    impact_2 <- cricreadR:::male_2_100_impact
   }
 
   if (top_row$gender == "female" & top_row$type_clean == "T20")
   {
-    xrun_1 <- xgb.load("models/female_1_t20_xrun")
-    xrun_2 <- xgb.load("models/female_2_t20_xrun")
-    wpa_1 <- xgb.load("models/female_1_t20_wpa")
-    wpa_2 <- xgb.load("models/female_2_t20_wpa")
-    impact_1 <- readRDS("models/female_1_t20_impact.rda")
-    impact_2 <- readRDS("models/female_2_t20_impact.rda")
+    xrun_1 <- cricreadR:::female_1_t20_xrun
+    xrun_2 <- cricreadR:::female_2_t20_xrun
+    wpa_1 <- cricreadR:::female_1_t20_wpa
+    wpa_2 <- cricreadR:::female_2_t20_wpa
+    impact_1 <- cricreadR:::female_1_t20_impact
+    impact_2 <- cricreadR:::female_2_t20_impact
   }
 
   if (top_row$gender == "female" & top_row$type_clean == "The Hundred")
   {
-    xrun_1 <- xgb.load("models/female_1_t20_xrun")
-    xrun_2 <- xgb.load("models/female_2_t20_xrun")
-    wpa_1 <- xgb.load("models/female_1_t20_wpa")
-    wpa_2 <- xgb.load("models/female_2_t20_wpa')
-    impact_1 <- readRDS("models/female_1_100_impact.rda")
-    impact_2 <- readRDS("models/female_2_100_impact.rda")
+    xrun_1 <- cricreadR:::female_1_t20_xrun
+    xrun_2 <- cricreadR:::female_2_t20_xrun
+    wpa_1 <- cricreadR:::female_1_t20_wpa
+    wpa_2 <- cricreadR:::female_2_t20_wpa
+    impact_1 <- cricreadR:::female_1_100_impact
+    impact_2 <- cricreadR:::female_2_100_impact
   }
 
 
