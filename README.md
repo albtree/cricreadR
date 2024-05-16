@@ -3,7 +3,7 @@
 
 **under development**
 
-A package of functions to read in cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition.
+A package of functions to read in Women's and Men's cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition.
 
 To install package from github use following code:
 ```
@@ -12,3 +12,7 @@ devtools::install_github("albtree/cricreadR")
 ```
 
 # Usage
+There are two main styles of functions in `cricreadR` - those for loading data directly from the repository - either in ball by ball format, or player statistics summarised by either game in a competition, or by the full competition. If a competition goes across two calendar years e.g. 2023/2024, then the earlier year is used as the official season.
+```
+load_bbb_data(comp_code = "WBBL", season = 2023) # Returns Women's Big Bash League ball by ball data for the 2023 season.
+load_player_competition_stats(comp_code = "IPL", season = 2023, team = "Sunrisers Hyderabad") # 
