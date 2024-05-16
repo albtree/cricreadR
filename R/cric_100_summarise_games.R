@@ -1,5 +1,5 @@
 
-cric_100_game_summary <- function(x){
+cric_100_summarise_games <- function(x){
   suppressPackageStartupMessages(library(tidyverse))
 
 x <- wpa_df

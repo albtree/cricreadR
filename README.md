@@ -9,3 +9,6 @@ To install package from github use following code:
 ```
 # install.packages("devtools")
 devtools::install_github("albtree/cricreadR")
+```
+
+# Usage

@@ -1,5 +1,5 @@
 
-cric_100_comp_summary <- function(x){
+cric_100_summarise_comp <- function(x){
  suppressPackageStartupMessages(library(tidyverse))
 
   bbb_df <- x %>%
