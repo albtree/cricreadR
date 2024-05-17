@@ -1,63 +1,63 @@
-competition_code,season,gender
-WCPL,2023,female
-WCPL,2022,female
-MLC,2023,male
-IPL,2024,male
-IPL,2023,male
-IPL,2022,male
-WPL,2023,female
-WPL,2022,female
-WBBL,2019,female
-WBBL,2015,female
-WBBL,2016,female
-WBBL,2017,female
-WBBL,2018,female
-WBBL,2020,female
-WBBL,2021,female
-WBBL,2022,female
-WBBL,2023,female
-IPL,2021,male
-IPL,2016,male
-BBL,2011,male
-BBL,2012,male
-BBL,2013,male
-BBL,2014,male
-BBL,2015,male
-BBL,2016,male
-BBL,2017,male
-BBL,2018,male
-BBL,2019,male
-BBL,2020,male
-BBL,2021,male
-BBL,2022,male
-BBL,2023,male
-ILT,2022,male
-ILT,2023,male
-IPL,2015,male
-IPL,2014,male
-IPL,2013,male
-IPL,2012,male
-IPL,2011,male
-IPL,2010,male
-IPL,2009,male
-IPL,2008,male
-IPL,2017,"male,"
-IPL,2018,male
-IPL,2019,male
-IPL,2020,male
-IPL,2007,male
-WSS,2021,female
-WSS,2022,female
-WSS,2023,female
-SA,2023,male
-SA,2022,male
-ICCWTWC,2022,female
-ICCWTWC,2019,female
-ICCWTWC,2018,female
-ICCWTWC,2015,female
-ICCWTWC,2013,female
-ICCWTWC,2012,female
-SS,2020,male
-SS,2021,male
-SS,2022,male
-SS,2023,male
+competition_code,season,gender,competition
+WCPL,2023,female,Women's Caribbean Premier League
+WCPL,2022,female,Women's Caribbean Premier League
+MLC,2023,male,Major League Cricket
+IPL,2024,male,Indian Premier League
+IPL,2023,male,Indian Premier League
+IPL,2022,male,Indian Premier League
+WPL,2024,female,Women's Premier League
+WPL,2023,female,Women's Premier League
+WBBL,2019,female,Women's Big Bash League
+WBBL,2015,female,Women's Big Bash League
+WBBL,2016,female,Women's Big Bash League
+WBBL,2017,female,Women's Big Bash League
+WBBL,2018,female,Women's Big Bash League
+WBBL,2020,female,Women's Big Bash League
+WBBL,2021,female,Women's Big Bash League
+WBBL,2022,female,Women's Big Bash League
+WBBL,2023,female,Women's Big Bash League
+IPL,2021,male,Indian Premier League
+IPL,2016,male,Indian Premier League
+BBL,2011,male,Big Bash League
+BBL,2012,male,Big Bash League
+BBL,2013,male,Big Bash League
+BBL,2014,male,Big Bash League
+BBL,2015,male,Big Bash League
+BBL,2016,male,Big Bash League
+BBL,2017,male,Big Bash League
+BBL,2018,male,Big Bash League
+BBL,2019,male,Big Bash League
+BBL,2020,male,Big Bash League
+BBL,2021,male,Big Bash League
+BBL,2022,male,Big Bash League
+BBL,2023,male,Big Bash League
+ILT,2022,male,Big Bash League
+ILT,2023,male,Big Bash League
+IPL,2015,male,Indian Premier League
+IPL,2014,male,Indian Premier League
+IPL,2013,male,Indian Premier League
+IPL,2012,male,Indian Premier League
+IPL,2011,male,Indian Premier League
+IPL,2010,male,Indian Premier League
+IPL,2009,male,Indian Premier League
+IPL,2008,male,Indian Premier League
+IPL,2017,male,Indian Premier League
+IPL,2018,male,Indian Premier League
+IPL,2019,male,Indian Premier League
+IPL,2020,male,Indian Premier League
+IPL,2007,male,Indian Premier League
+WSS,2021,female,Women's Super Smash
+WSS,2022,female,Women's Super Smash
+WSS,2023,female,Women's Super Smash
+SA,2023,male,SA20
+SA,2022,male,SA20
+ICCWTWC,2022,female,ICC Women's Twenty20 World Cup
+ICCWTWC,2019,female,ICC Women's Twenty20 World Cup
+ICCWTWC,2018,female,ICC Women's Twenty20 World Cup
+ICCWTWC,2015,female,ICC Women's Twenty20 World Cup
+ICCWTWC,2013,female,ICC Women's Twenty20 World Cup
+ICCWTWC,2012,female,ICC Women's Twenty20 World Cup
+SS,2020,male,Super Smash
+SS,2021,male,Super Smash
+SS,2022,male,Super Smash
+SS,2023,male,Super Smash
