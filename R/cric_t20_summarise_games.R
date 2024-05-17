@@ -1,5 +1,5 @@
 
-cric_t20_game_summary <- function(x){
+cric_t20_summarise_games <- function(x){
   suppressPackageStartupMessages(library(tidyverse))
 
   bbb_df <- x %>%

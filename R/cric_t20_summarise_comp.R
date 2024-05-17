@@ -1,4 +1,4 @@
-cric_t20_comp_summary <- function(x){
+cric_t20_summarise_comp <- function(x){
   suppressPackageStartupMessages(library(tidyverse))
 
 
