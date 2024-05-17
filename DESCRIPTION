@@ -1,6 +1,6 @@
 Package: cricreadR
 Title: Access pre-scraped Ball by Ball data from ESPN Cricinfo
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: c(
     person("Tim", "Albiston", , "talbtree@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
