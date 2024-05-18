@@ -1,20 +1,27 @@
 Package: cricreadR
 Title: Access pre-scraped Ball by Ball data from ESPN Cricinfo
 Version: 1.0.0
-Authors@R: c(
+Authors@R: 
     person("Tim", "Albiston", , "talbtree@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "YOUR-ORCID-ID"))
-  )
-Description: A package of functions to read in cricket ball by ball, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition.
+Description: A package of functions to read in cricket ball by ball, and
+    player statistics. If competitions are unavailable, functions are able
+    to scrape ball by ball data from ESPN cricinfo, apply Impact and Win
+    Probability models to the data, and summarise by game or competition.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+URL: https://github.com/albtree/cricreadR
+BugReports: https://github.com/albtree/cricreadR/issues
 Depends: 
     R (>= 4.3.3),
     tidyverse
 Imports: 
+    cli,
+    glue,
+    lifecycle,
+    rlang,
+    withr,
     xgboost
-URL: https://github.com/albtree/cricreadR
-BugReports: https://github.com/albtree/cricreadR/issues
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
