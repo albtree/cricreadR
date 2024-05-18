@@ -16,3 +16,5 @@ Depends:
     tidyverse
 Imports: 
     xgboost
+URL: https://github.com/albtree/cricreadR
+BugReports: https://github.com/albtree/cricreadR/issues
