@@ -15,11 +15,6 @@ Depends:
     R (>= 4.3.3),
     tidyverse
 Imports: 
-    cli,
-    glue,
-    lifecycle,
-    rlang,
-    withr,
     xgboost
 Encoding: UTF-8
 LazyData: true
