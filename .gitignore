@@ -3,3 +3,7 @@
 .RData
 .Ruserdata
 ^cric_readr_gh_action.R
+.Rdata
+.httr-oauth
+.DS_Store
+.quarto
