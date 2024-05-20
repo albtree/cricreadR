@@ -5,7 +5,7 @@ cric_apply_models <- function(x){
 
 top_row <- x |>
   slice_head(n = 1)
-  bbb <- x %>%
+  bbb <- x |>
     arrange(id) |>
     group_by(match_id, inning_number) |>
     mutate(delivery_no = row_number(),
@@ -37,7 +37,10 @@ top_row <- x |>
            runs_scored_yet = total_inning_runs) |>
     mutate(phase = case_when(over_number <= 6 ~ "powerplay",
                              over_number >6 & over_number <= 16 ~ "middle",
-                             over_number >= 15 ~ "death"))
+                             over_number >= 15 ~ "death"),
+           wides_or_noballs = noballs+wides,
+           is_real_ball = case_when(wides_or_noballs < 1 ~ 1,
+                                    TRUE ~ 0))
 
 innings1 <- bbb %>%
     filter(inning_number == 1)
@@ -136,7 +139,7 @@ if (top_row$gender == "male" & top_row$type_clean == "T20")
     rename(total_inning_wickets = wickets_lost_yet,
            total_inning_runs = runs_scored_yet) |>
     dplyr::select(-runs_gained, -run_chase, -wickets_prior_to_ball, -runs_prior_to_ball,
-                  -balls_prior_to_ball, -run_chase_prior_to_ball, -run_rate_prior_to_ball, -max_delivery_no)
+                  -balls_prior_to_ball, -run_chase_prior_to_ball, -run_rate_prior_to_ball, -max_delivery_no, -wides_or_noballs)
 
 
 }

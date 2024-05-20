@@ -26,7 +26,7 @@ batters_df <- bbb_df %>%
   group_by(batter, batter_cricinfo_id, bat_team, competition, season) %>%
   summarise(runs_for = sum(runs_off_bat, na.rm = TRUE),
             #wickets_lost = sum(wicket, na.rm = TRUE),
-            balls_faced= n(),
+            balls_faced= sum(is_real_ball),
             boundaries = sum(boundary),
             dots_against = sum(dot),
             sixes = sum(six),

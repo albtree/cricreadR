@@ -35,7 +35,7 @@ cric_t20_summarise_comp <- function(x){
     summarise(total_bat_wpa = sum(bat_WPA, na.rm = TRUE),
               runs_for = sum(runs_off_bat, na.rm = TRUE),
               #wickets_lost = sum(wicket, na.rm = TRUE),
-              balls_faced= n(),
+              balls_faced= sum(is_real_ball),
               total_bat_XRA = sum(bat_XRA, na.rm = TRUE),
               boundaries = sum(boundary),
               dots_against = sum(dot),
