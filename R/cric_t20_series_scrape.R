@@ -108,10 +108,10 @@ cric_t20_series_scrape <- function(x){
 
           player_list_team_1 <- pluck(match_data_json, "team", "player", 1) |>
             as.data.frame() |>
-            dplyr::select(player_id, object_id, known_as)
+            dplyr::select(player_id, object_id, known_as, batting_style, bowling_hand, bowling_pacespin, bowling_style_long)
           player_list_team_2 <- pluck(match_data_json, "team", "player", 2) |>
             as.data.frame() |>
-            dplyr::select(player_id, object_id, known_as)
+            dplyr::select(player_id, object_id, known_as, batting_style, bowling_hand, bowling_pacespin, bowling_style_long)
 
           df_teams_innings <- pluck(match_data_json, "match", .default = NA) |>
             as.data.frame() |>
@@ -214,14 +214,23 @@ cric_t20_series_scrape <- function(x){
            player_id = player_id) |>
     mutate(player_id = as.integer(player_id))
 
+  batter_list <- player_list |>
+    dplyr::select(player_id, cricinfo_id, player, batting_style)
+
+  bowler_list <- player_list |>
+    dplyr::select(player_id, cricinfo_id, player, bowling_hand, bowling_pacespin, bowling_style_long)
+
+  out_list <- player_list |>
+    dplyr::select(player_id, cricinfo_id, player)
+
   df <- df |>
     unpack(cols = c(dismissalText), names_sep = "_") |>
-    left_join(player_list, by = c('bowlerPlayerId' = 'player_id'), na_matches = "never") |>
+    left_join(bowler_list, by = c('bowlerPlayerId' = 'player_id'), na_matches = "never") |>
     rename(bowler = player, bowler_cricinfo_id = cricinfo_id) |>
-    left_join(player_list, by = c('batsmanPlayerId' = 'player_id'), na_matches = "never") |>
+    left_join(batter_list, by = c('batsmanPlayerId' = 'player_id'), na_matches = "never") |>
     rename(batter = player, batter_cricinfo_id = cricinfo_id,
            batterPlayerId = batsmanPlayerId) |>
-    left_join(player_list, by = c('outPlayerId' = 'player_id'), na_matches = "never") |>
+    left_join(out_list, by = c('outPlayerId' = 'player_id'), na_matches = "never") |>
     rename(out_player = player, out_player_cricinfo_id = cricinfo_id) |>
     left_join(df_teams, by = c('match_id' = 'match_id', 'inningNumber' = 'bat_innings')) |>
     rename(bat_team_id = team_id,
@@ -271,9 +280,10 @@ cric_t20_series_scrape <- function(x){
                   oversActual, overNumber, ballNumber, balls_remaining,
                   totalInningRuns, run_rate, target, totalInningWickets,
                   bowl_team, bowl_team_id, bowl_team_abbr,
-                  bowler_cricinfo_id, bowlerPlayerId, bowler, bowler_wickets_cumulative,
+                  bowler_cricinfo_id, bowlerPlayerId, bowler, bowling_hand,
+                  bowling_pacespin, bowling_style_long, bowler_wickets_cumulative,
                   title, bat_team, bat_team_id, bat_team_abbr,
-                  batter_cricinfo_id, batterPlayerId, batter, batter_runs_cumulative,
+                  batter_cricinfo_id, batterPlayerId, batter, batting_style, batter_runs_cumulative,
                   totalRuns, runs_off_bat, isFour, isSix,
                   pitchLine, pitchLength, shotType, shotControl,
                   wagonX, wagonY, wagonZone,

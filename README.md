@@ -20,6 +20,10 @@ load_player_game_stats(comp_code = "WSS", cricinfo_id = 803971)
 # Returns player level statistics for all games by the player represented by cricinfo_id 803971 (Amelia Kerr) in the Women's Super Smash League
 competition_codes() 
 # Returns a dataframe of all the competitions and seasons available in the data repository
+load_team_logos()
+# Returns a datafarme of team logos and colour codes
+load_player_headshots()
+# Returns a dataframe of player headshot URLs
 ```
 
 The second set of functions allow users to scrape the URL of the Fixture and Results page of ESPN Cricinfo for ball by ball data, apply Impact, Win Probability and Expected Run models, and summarise by game or competition. In order to adhere to ethical data scraping, users are encouraged to check first in `competition_codes()` to see if the competition they're requesting is available, before resorting to using `cric_t20_series_scrape`.
