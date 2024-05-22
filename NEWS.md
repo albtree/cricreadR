@@ -1,3 +1,5 @@
+# cricreadR 1.3.0
+
 # cricreadR 1.2.1
 Added data folder to buildignore so as to reduce package file size for quicker download for users
 
