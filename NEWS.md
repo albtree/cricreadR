@@ -1,3 +1,5 @@
+# cricreadR (development version)
+
 # cricreadR 1.2.0
 Fixed balls faced by batters to not include no ballls or wides
 
