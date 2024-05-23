@@ -5,8 +5,8 @@ A package of functions to read in Women's and Men's T20 and The Hundred cricket 
 
 To install package from github use following code:
 ```
-# install.packages("devtools")
-devtools::install_github("albtree/cricreadR")
+# install.packages("pak")
+pak::pak("albtree/cricreadR")
 ```
 
 # Usage
