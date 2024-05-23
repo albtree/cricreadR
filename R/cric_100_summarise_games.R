@@ -2,9 +2,6 @@
 cric_100_summarise_games <- function(x){
   suppressPackageStartupMessages(library(tidyverse))
 
-x <- wpa_df
-
-
   bbb_df <- x %>%
   group_by(match_id, custom_match_id, inning_number) %>%
   mutate(impact_prev = lag(exp_innings)) %>%
