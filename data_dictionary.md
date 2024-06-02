@@ -132,7 +132,7 @@
 
 `score`: ESPNCricInfo’s expected innings total
 
-`winProbability`: ESPNCricInfo’s win probability model
+`winProbability`: ESPNCricInfo’s win probability model prediction
 
 `delivery_no`: Delivery number of the Inning
 
@@ -144,7 +144,7 @@
 
 `phase`: Phase of the Inning: `powerplay`, `middle`, or `death` overs
 
-`wp`: cricreadR’s win probability model
+`wp`: cricreadR’s win probability model prediction
 
 `xrun`: cricreadR’s expected runs for that ball
 
