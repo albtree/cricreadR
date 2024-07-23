@@ -41,4 +41,3 @@ cric_100_summarise_comp()
 cric_100_summarise_games()
 ```
 
-May 18th 2024: Please note more competitions are being added over the next few weeks to the repo: The Hundred Men's and Women's, PSL, CPL, previous Men's ICC T20 World Cups (have already done Women's!).
