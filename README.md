@@ -1,6 +1,10 @@
 # cricreadR
 <img src="https://github.com/albtree/cricreadR/assets/88771954/9d320f4f-79ca-4045-89d7-38abb083a931" width="250" height="250">
 
+
+***Unfortunately as of October 2024 ESPNCricInfo have changed their API permissions and cricreadR is currently on hiatus from ingesting new matches***
+
+
 A package of functions to read in Women's and Men's T20 and The Hundred cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition. At the current point in time this package does not support One Day (50 over) matches or Test matches.
 
 To install package from github use following code:
