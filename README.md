@@ -14,7 +14,7 @@ August 7th 2025 Update: Expect to begin ingesting missing matches from major com
 - Men's & Women's The Hundred
 - Men's & Women's T20 World Cups
 
-Furthermore, the ```cric_t20_series_scrape()``` & ```cric_apply_models``` functions will be deprecated as due to API changes users will no longer be able to use the package to scrape their own series.
+Furthermore, the ```cric_t20_series_scrape()``` function will be deprecated as due to API changes users will no longer be able to use the package to scrape their own series. At a later date, the ```cric_apply_models()``` function will also be deprecated as all readable data will have models pre-applied to it.
 ***
 
 A package of functions to read in Women's and Men's T20 and The Hundred cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition. At the current point in time this package does not support One Day (50 over) matches or Test matches.
