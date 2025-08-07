@@ -3,7 +3,18 @@
 
 
 ***Unfortunately as of October 2024 ESPNCricInfo have changed their API permissions and cricreadR is currently on hiatus from ingesting new matches
+
 July 21st 2025 Update: Progress is being made to rectify the above issue! 
+
+August 7th 2025 Update: Expect to begin ingesting missing matches from major competitions since October 2024 in the next two weeks. Data should then update daily. Due to new costs involved, only select competitions will be accessible:
+- Men's & Women's Big Bash League
+- Men's & Womne's Indian Premier League
+- Major League Cricket
+- Men's & Women's Vitality Blast
+- Men's & Women's The Hundred
+- Men's & Women's T20 World Cups
+
+Furthermore, the ```cric_t20_series_scrape()``` & ```cric_apply_models``` functions will be deprecated as due to API changes users will no longer be able to use the package to scrape their own series.
 ***
 
 A package of functions to read in Women's and Men's T20 and The Hundred cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition. At the current point in time this package does not support One Day (50 over) matches or Test matches.
