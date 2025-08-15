@@ -18,7 +18,7 @@
 
 `date`: Date of match
 
-`timestamp`: Timestamp of play
+`timestamp`: Timestamp of play in UTC time
 
 `inning_number`: Inning Number: 1-2
 
