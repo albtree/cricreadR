@@ -1,7 +1,7 @@
 # cricreadR
 <img src="https://github.com/albtree/cricreadR/assets/88771954/9d320f4f-79ca-4045-89d7-38abb083a931" width="250" height="250">
 
-***August 14th 2025 Update: After a 10 month hiatus due to an ESPNCricInfon API permission change, cricreadR has re-commenced ingesting matches. Data is not yet updating daily but should be in the near future. Due to new costs involved, only select competitions will be accessible:
+***August 15th 2025 Update: After a 10 month hiatus due to an ESPNCricInfo API permission change, cricreadR has re-commenced ingesting matches. Data should now be updating daily. Due to new costs involved, only select competitions will be accessible:
 - Men's & Women's Big Bash League
 - Men's & Womne's Indian Premier League
 - Major League Cricket
