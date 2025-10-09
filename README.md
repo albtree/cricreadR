@@ -3,7 +3,7 @@
 
 ***August 15th 2025 Update: After a 10 month hiatus due to an ESPNCricInfo API permission change, cricreadR has re-commenced ingesting matches. Data should now be updating daily. Due to new costs involved, only select competitions will be accessible:
 - Men's & Women's Big Bash League
-- Men's & Womne's Indian Premier League
+- Men's & Women's Indian Premier League
 - Major League Cricket
 - Men's & Women's Vitality Blast (Maybe :))
 - Men's & Women's The Hundred
