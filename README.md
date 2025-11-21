@@ -14,7 +14,11 @@ Furthermore, the ```cric_t20_series_scrape()``` function will be deprecated as d
 
 A package of functions to read in Women's and Men's T20 and The Hundred cricket ball by ball data, and player statistics. If competitions are unavailable, functions are able to scrape ball by ball data from ESPN cricinfo, apply Impact and Win Probability models to the data, and summarise by game or competition. At the current point in time this package does not support One Day (50 over) matches or Test matches.
 
-To install package from github use following code:
+To install package from github use one of the following code snippets:
+```
+# install.packages("remotes")
+remotes::install_github("albtree/cricreadr")
+```
 ```
 # install.packages("pak")
 pak::pak("albtree/cricreadR")
