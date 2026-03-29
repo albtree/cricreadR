@@ -15,9 +15,7 @@ Depends:
     R (>= 4.3.3),
     tidyverse
 Imports:
-    xgboost (== 3.0.0)
-Remotes:
-    dmlc/xgboost@v3.0.0
+    xgboost
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
