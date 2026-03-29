@@ -14,8 +14,10 @@ BugReports: https://github.com/albtree/cricreadR/issues
 Depends: 
     R (>= 4.3.3),
     tidyverse
-Imports: 
+Imports:
     xgboost (== 3.0.0)
+Remotes:
+    dmlc/xgboost@v3.0.0
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
